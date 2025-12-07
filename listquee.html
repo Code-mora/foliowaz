@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail - FolioWaz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+        .gradient-text {
+            background: linear-gradient(90deg, #06b6d4, #10b981, #d9f99d);
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+        #vanta-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+    </style>
+</head>
+<body class="bg-gray-800 text-white scroll-smooth">
+    <div id="vanta-bg"></div>
+    
+    <nav class="fixed w-full z-50 bg-gray-800 bg-opacity-80 backdrop-filter backdrop-blur-lg border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <span class="text-xl font-bold gradient-text">FolioWaz</span>
+            <a href="index.html" class="flex items-center gap-2 hover:text-cyan-400 transition group text-sm font-medium">
+                <i data-feather="arrow-left" class="w-4 h-4 transition-transform group-hover:-translate-x-1"></i> Kembali ke Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            
+            <div id="header-anim" class="mb-10">
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-cyan-500 bg-opacity-20 text-cyan-400 px-3 py-1 rounded-full text-xs">Web Development</span>
+                    <span class="bg-emerald-500 bg-opacity-20 text-emerald-400 px-3 py-1 rounded-full text-xs">Tugas Kuliah</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">ListQuee - Web Todolist Sederhana Catatan Harian</h1>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                    Web berbasis PHP & MySQL untuk menambahkan catatan harian.
+                </p>
+            </div>
+
+            <div id="img-anim" class="mb-16 overflow-hidden rounded-2xl shadow-2xl border border-gray-700">
+                <img src="./foto/listquee-preview.webp" alt="Preview Proyek" class="w-full h-auto">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                
+                <div id="desc-anim" class="md:col-span-2 space-y-8 text-gray-300">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Tentang Proyek</h3>
+                        <p>Proyek ini dibuat dengan tujuan agar pengguna dapat menambahkan catatan harian dengan sistem reward point. Sehingga pengguna termotivasi untuk menambahkan catatan harian. Selain itu, proyek ini juga memperdalam pemahaman saya terkait PHP dan MySQL.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Fitur</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Integrasi CRUD (Create, Read, Update, Delete) Catatan.</li>
+                            <li>Sistem Login & Registrasi User.</li>
+                            <li>Sistem Reward Point.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="side-anim" class="bg-gray-700 bg-opacity-40 p-8 rounded-2xl border border-gray-600 h-fit shadow-lg">
+                    <div class="space-y-6">
+                        <div>
+                            <span class="block text-gray-400 text-xs mb-1 uppercase">Mata Kuliah</span>
+                            <span class="text-lg font-semibold text-white">Pemrograman Web</span>
+                        </div>
+                        <div>
+                            <span class="block text-gray-400 text-xs mb-1 uppercase">Teknologi</span>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="bg-gray-600 px-3 py-1 rounded text-xs text-white">PHP</span>
+                                <span class="bg-gray-600 px-3 py-1 rounded text-xs text-white">MySQL</span>
+                                <span class="bg-gray-600 px-3 py-1 rounded text-xs text-white">Tailwind CSS</span>
+                                <span class="bg-gray-600 px-3 py-1 rounded text-xs text-white">HTML</span>
+                                <span class="bg-gray-600 px-3 py-1 rounded text-xs text-white">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="pt-6 border-t border-gray-600">
+                            <a href="https://listquee.iceiy.com/" class="block w-full text-center bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 rounded-xl transition">
+                                Lihat Website
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 py-12 border-t border-gray-700 text-center text-gray-500 text-xs">
+        <p>© 2025 FolioWaz Detail Page. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script> 
+    <script>
+        VANTA.WAVES({
+            el: "#vanta-bg", mouseControls: true, touchControls: true, scale: 1.00,
+            color: 0x374151, shininess: 20.00, waveHeight: 15.00, waveSpeed: 0.50, zoom: 0.65
+        });
+        feather.replace();
+        gsap.from("#header-anim", { duration: 0.8, y: 30, opacity: 0 });
+        gsap.from("#img-anim", { duration: 1, scale: 0.95, opacity: 0, delay: 0.2 });
+        gsap.from("#desc-anim", { duration: 0.8, x: -30, opacity: 0, delay: 0.4 });
+        gsap.from("#side-anim", { duration: 0.8, x: 30, opacity: 0, delay: 0.6 });
+    </script>
+</body>
+</html>
