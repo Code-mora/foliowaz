@@ -11,7 +11,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
-        /* Obat Sapu Jagat agar tidak ada bocor kanan di HP */
         html, body {
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
@@ -50,7 +49,6 @@
             z-index: -1;
         }
 
-        /* Perbaikan untuk alamat agar tidak memaksakan lebar layar */
         .address-text {
             word-wrap: break-word;
             overflow-wrap: break-word;
@@ -209,16 +207,20 @@
                 </div>
                 <div>
                     <h3 class="text-xl font-semibold mb-6">Organization</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-gray-700 p-6 rounded-xl card-hover">
-                            <div class="text-purple-400 mb-3"><i data-feather="terminal"></i></div>
-                            <h4 class="font-semibold mb-2 text-sm">Techology Student Community (TSC)</h4>
-                            <p class="text-gray-400 text-xs text-justify">Organisasi yang berfokus pada pengembangan dan peningkatan keterampilan teknologi</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-700 p-4 md:p-6 rounded-xl card-hover flex flex-col items-center text-center">
+                            <div class="text-purple-400 mb-3">
+                                <i data-feather="terminal" class="w-8 h-8"></i>
+                            </div>
+                            <h4 class="font-semibold mb-2 text-[10px] sm:text-xs md:text-sm">Techology Student Community (TSC)</h4>
+                            <p class="text-gray-400 text-[9px] sm:text-xs text-justify">Organisasi yang berfokus pada pengembangan dan peningkatan keterampilan teknologi</p>
                         </div>
-                        <div class="bg-gray-700 p-6 rounded-xl card-hover">
-                            <div class="text-purple-400 mb-3"><i data-feather="briefcase"></i></div>
-                            <h4 class="font-semibold mb-2 text-sm">Business Student Community (BSC)</h4>
-                            <p class="text-gray-400 text-xs text-justify">Organisasi yang berfokus pada pengembangan dan peningkatan keterampilan bisnis</p>
+                        <div class="bg-gray-700 p-4 md:p-6 rounded-xl card-hover flex flex-col items-center text-center">
+                            <div class="text-purple-400 mb-3">
+                                <i data-feather="briefcase" class="w-8 h-8"></i>
+                            </div>
+                            <h4 class="font-semibold mb-2 text-[10px] sm:text-xs md:text-sm">Business Student Community (BSC)</h4>
+                            <p class="text-gray-400 text-[9px] sm:text-xs text-justify">Organisasi yang berfokus pada pengembangan dan peningkatan keterampilan bisnis</p>
                         </div>
                     </div>
                 </div>
@@ -349,7 +351,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script> 
     <script>
-        // Vanta.js
         VANTA.WAVES({
             el: "#vanta-bg",
             mouseControls: true,
@@ -366,12 +367,10 @@
             zoom: 0.65
         });
 
-        // Menu Toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
-        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -383,13 +382,11 @@
             });
         });
 
-        // GSAP
         gsap.from("nav", {duration: 1, y: -50, opacity: 0, ease: "power2.out"});
         gsap.from("#home h1", {duration: 1, y: 50, opacity: 0, ease: "power2.out", delay: 0.5});
         gsap.from("#home p", {duration: 1, y: 50, opacity: 0, ease: "power2.out", delay: 0.7});
         gsap.from("#home img", {duration: 1, scale: 0.8, opacity: 0, ease: "back.out(1.7)", delay: 1});
 
-        // Scroll Observer for Skill Bars
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -403,6 +400,7 @@
 
         document.querySelectorAll('.skill-bar').forEach(bar => observer.observe(bar));
 
+        // PENTING: Panggil replace icon di akhir
         feather.replace();
     </script>
 </body>
