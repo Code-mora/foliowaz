@@ -19,25 +19,43 @@
         </div>
     </div>
 
-    <script>
+   <script>
         (function() {
-            emailjs.init("0rbMcUXn3-itr3YY8"); // Ganti pakai Public Key kamu
+            // 1. Inisialisasi EmailJS
+            emailjs.init("0rbMcUXn3-itr3YY8"); 
 
-            // Ambil nama dari URL (biar personal)
+            // 2. Ambil parameter dari URL secara teliti
             const urlParams = new URLSearchParams(window.location.search);
-            const userName = urlParams.get('name') || "User";
-            document.getElementById('user-name').innerText = userName;
+            
+            // Coba ambil dari 'name' (sesuai template kamu)
+            let userName = urlParams.get('name');
 
-            // KIRIM NOTIFIKASI KE EMAIL AHWAZ (Bukan ke pengirim)
-            // Buat Template Baru di EmailJS khusus untuk Notifikasi ini
+            // 3. Bersihkan nama (Hapus karakter %20 dll)
+            let cleanName = "User"; // Default jika kosong
+            if (userName && userName !== "{{name}}") {
+                cleanName = decodeURIComponent(userName);
+            }
+
+            // 4. Update tampilan di halaman (Terima kasih ...)
+            // Pastikan ID ini ada di HTML kamu: <span id="user-name"></span>
+            const nameDisplay = document.getElementById('user-name');
+            if (nameDisplay) {
+                nameDisplay.innerText = cleanName;
+            }
+
+            // 5. Langsung munculkan centang hijau (UX Cepat)
+            document.getElementById('loader').classList.add('hidden');
+            document.getElementById('success-content').classList.remove('hidden');
+
+            // 6. Kirim notifikasi ke Ahwaz pakai variabel verified_name
+            // Sesuai dengan gambar template kamu yang pakai {{verified_name}}
             emailjs.send("service_uw065nj", "template_gblk3a3", {
-                verified_name: userName,
+                verified_name: cleanName, 
                 status: "VERIFIED_HUMAN"
             })
-            .then(() => {
-                document.getElementById('loader').classList.add('hidden');
-                document.getElementById('success-content').classList.remove('hidden');
-            });
+            .then(() => console.log("Notif masuk ke Ahwaz!"))
+            .catch((err) => console.error("Gagal kirim notif:", err));
+
         })();
     </script>
 </body>
