@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification Success | FolioWaz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen">
+    <div class="text-center p-8 bg-gray-800 rounded-2xl shadow-2xl border border-gray-700 max-w-sm mx-auto">
+        <div id="loader" class="mb-4 text-purple-400 animate-spin text-4xl inline-block border-4 border-current border-t-transparent rounded-full w-12 h-12"></div>
+        
+        <div id="success-content" class="hidden">
+            <div class="mb-6 text-green-400 text-6xl">✓</div>
+            <h1 class="text-2xl font-bold mb-4">Verifikasi Berhasil!</h1>
+            <p class="text-gray-400 mb-8">Terima kasih <span id="user-name" class="text-purple-400"></span>! Pesan kamu sudah masuk ke inbox prioritas Ahwaz.</p>
+            <a href="index.html" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full transition">Kembali ke Beranda</a>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY"); // Ganti pakai Public Key kamu
+
+            // Ambil nama dari URL (biar personal)
+            const urlParams = new URLSearchParams(window.location.search);
+            const userName = urlParams.get('name') || "User";
+            document.getElementById('user-name').innerText = userName;
+
+            // KIRIM NOTIFIKASI KE EMAIL AHWAZ (Bukan ke pengirim)
+            // Buat Template Baru di EmailJS khusus untuk Notifikasi ini
+            emailjs.send("service_uw065nj", "template_gblk3a3", {
+                verified_name: userName,
+                status: "VERIFIED_HUMAN"
+            })
+            .then(() => {
+                document.getElementById('loader').classList.add('hidden');
+                document.getElementById('success-content').classList.remove('hidden');
+            });
+        })();
+    </script>
+</body>
+</html>
