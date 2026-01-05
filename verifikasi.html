@@ -47,14 +47,19 @@
             document.getElementById('loader').classList.add('hidden');
             document.getElementById('success-content').classList.remove('hidden');
 
-            // 6. Kirim notifikasi ke Ahwaz pakai variabel verified_name
-            // Sesuai dengan gambar template kamu yang pakai {{verified_name}}
-            emailjs.send("service_uw065nj", "template_gblk3a3", {
-                verified_name: cleanName, 
-                status: "VERIFIED_HUMAN"
-            })
-            .then(() => console.log("Notif masuk ke Ahwaz!"))
-            .catch((err) => console.error("Gagal kirim notif:", err));
+           // Ganti bagian emailjs.send di verifikasi.html dengan ini:
+emailjs.send("service_uw065nj", "MASUKKAN_ID_YANG_BENAR_DISINI", {
+    verified_name: cleanName, 
+    status: "VERIFIED_HUMAN"
+})
+.then(() => {
+    console.log("Notif masuk ke Ahwaz!");
+})
+.catch((err) => {
+    // Kalau email gak masuk, ini bakal kasih tau kenapa
+    alert("Notif gagal kirim: " + JSON.stringify(err));
+    console.error("Gagal kirim notif:", err);
+});
 
         })();
     </script>
