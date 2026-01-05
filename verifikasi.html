@@ -48,7 +48,7 @@
             document.getElementById('success-content').classList.remove('hidden');
 
             // 6. Kirim notifikasi ke Ahwaz (Template ID disesuaikan dengan foto dashboard: template_notifme)
-            emailjs.send("service_uw065nj", "", {
+            emailjs.send("service_uw065nj", "template_notifme", {
                 verified_name: cleanName, 
                 status: "VERIFIED_HUMAN"
             })
